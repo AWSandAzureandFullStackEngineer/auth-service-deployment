@@ -19,7 +19,7 @@ spec:
           image: steven8519/authentication-service:0.0.1
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod, dev
