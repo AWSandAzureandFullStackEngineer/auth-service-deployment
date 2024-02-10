@@ -22,7 +22,7 @@ spec:
             - containerPort: 8081
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: prod, dev
+              value: prod
             - name: DB_HOST
               valueFrom:
                 configMapKeyRef:
