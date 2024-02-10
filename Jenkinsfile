@@ -32,15 +32,12 @@ pipeline {
                 sh 'docker system prune -a --force'
             }
         }
-
-        post {
-            stage {
-                always {
-                    // Clean up Docker images after build
-                    cleanWs()
-                    docker.image('steven8519/authentication-service').remove()
-                }
+        stage {
+            steps {
+                // Clean up Docker images after build
+                cleanWs()
+                docker.image('steven8519/authentication-service').remove()
             }
-        }
+        }  
     }
 }
