@@ -12,7 +12,7 @@ pipeline {
                 script {
                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                         withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                            //def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
+                            def encodedPassword = URLEncoder.encode("$GIT_PASSWORD",'UTF-8')
                             sh "git config user.email awsandazurecloudengineer@gmail.com"
                             sh "git config user.name AWSandAzureandFullStackEngineer"
                             //sh "git switch master"
