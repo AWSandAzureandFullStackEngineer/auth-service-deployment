@@ -34,10 +34,12 @@ pipeline {
         }
 
         post {
-            always {
-                // Clean up Docker images after build
-                cleanWs()
-                docker.image('steven8519/authentication-service').remove()
+            stage {
+                always {
+                    // Clean up Docker images after build
+                    cleanWs()
+                    docker.image('steven8519/authentication-service').remove()
+                }
             }
         }
     }
