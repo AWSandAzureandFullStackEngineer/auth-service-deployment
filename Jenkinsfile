@@ -21,15 +21,10 @@ pipeline {
                             sh "cat deployment.yml"
                             sh "git add ."
                             sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                            sh "git push https://${GIT_USERNAME}:@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
+                            sh "git push https://${GIT_USERNAME}@github.com/${GIT_USERNAME}/kubernetesmanifest.git HEAD:main"
                         }
                     }
                 }
-            }
-        }
-        stage('Clean up workspace') {
-            steps {
-                cleanWs()
             }
         }
     }
