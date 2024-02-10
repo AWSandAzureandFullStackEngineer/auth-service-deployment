@@ -27,12 +27,12 @@ pipeline {
                 }
             }
         }
-        stage('Cleanup') {
+        stage('Remove docker images and containers') {
             steps {
                 sh 'docker system prune -a --force'
             }
         }
-        stage {
+        stage('Cleanup') {
             steps {
                 // Clean up Docker images after build
                 cleanWs()
