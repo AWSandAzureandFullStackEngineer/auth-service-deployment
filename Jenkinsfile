@@ -27,5 +27,18 @@ pipeline {
                 }
             }
         }
+        stage('Cleanup') {
+            steps {
+                sh 'docker system prune -a --force'
+            }
+        }
+
+        post {
+            always {
+                // Clean up Docker images after build
+                cleanWs()
+                docker.image('steven8519/authentication-service').remove()
+            }
+        }
     }
 }
